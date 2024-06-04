@@ -1,5 +1,5 @@
 "use client"
-import GlobalApi from '@/app/_utils/GlobalApi';
+import GlobalApi from '../../../_utils/GlobalApi.jsx';
 import React, { useEffect, useState } from 'react'
 import CastDetail from '../_components/CastDetail';
 import CastSuggestionList from '../_components/CastSuggestionList';

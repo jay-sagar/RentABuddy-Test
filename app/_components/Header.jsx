@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import {
   LoginLink,
   LogoutLink,
@@ -13,7 +13,8 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "../../components/ui/popover";
+import { ModeToggle } from "./DarkMode";
 
 function Header() {
   const Menu = [
@@ -55,9 +56,10 @@ function Header() {
             </Link>
           ))}
         </ul>
-        <Link href="/create">
+        {/* <Link href="/create">
           <Button>Become Our Member</Button>
-        </Link>
+        </Link> */}
+        <ModeToggle />
       </div>
       {user ? (
         <Popover>
@@ -72,9 +74,6 @@ function Header() {
           </PopoverTrigger>
           <PopoverContent className="w-44">
             <ul className="flex flex-col gap-2">
-              <li className="cursor-pointer hover:bg-slate-100 p-2 rounded-md">
-                Profile
-              </li>
               <Link
                 href={"/my-booking"}
                 className="cursor-pointer hover:bg-slate-100 p-2 rounded-md"

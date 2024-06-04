@@ -8,16 +8,21 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-  } from "@/components/ui/dialog"
-import { Button } from '@/components/ui/button'
-import { Calendar } from "@/components/ui/calendar"
+  } from "../../../../components/ui/dialog"
+import { Button } from '../../../../components/ui/button'
+import { Calendar } from "../../../../components/ui/calendar"
 import { CalendarDays, Clock } from 'lucide-react'
-import { Textarea } from '@/components/ui/textarea'
+import { Textarea } from '../../../../components/ui/textarea'
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
-import GlobalApi from '@/app/_utils/GlobalApi'
+import GlobalApi from '../../../_utils/GlobalApi';
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
+
+
 
 function BookAppointment({cast}) {
+  const router = useRouter();
+
     const [date, setDate]=useState(new Date());
     const [timeSlot,setTimeSlot]=useState();
     const [selectedTimeSlot,setSelectedTimeSlot]=useState();
@@ -59,12 +64,17 @@ function BookAppointment({cast}) {
         console.log(resp);
         if(resp)
         {
-          // GlobalApi.sendEmail(data).then(resp=>{
-          //   console.log(resp)
-          // })
-          toast("Booking Confirmation sent on Email")
+          toast("Booking Confirmed");
+          if (cast.id === 4 || cast.id === 1 || cast.id === 3) {
+            router.push("https://buy.stripe.com/test_00g5mT5z2er2fjWcMN");
+          } else if (cast.id == 2 || cast.id == 9 || cast.id == 6) {
+            router.push("https://buy.stripe.com/test_eVa8z57HadmY4Fi002");
+          } else {
+            router.push("https://buy.stripe.com/test_eVabLh4uY82E7RueUX");
+          }
         }
       })
+
     }
 
   const isPastDay=(day)=>{

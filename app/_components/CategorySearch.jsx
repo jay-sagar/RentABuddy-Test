@@ -1,7 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import Image from "next/image";
-import { Input } from "@/components/ui/input";
+import { Input } from "../../components/ui/input";
 import { Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import GlobalApi from "../_utils/GlobalApi";
